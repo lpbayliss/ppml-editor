@@ -8,11 +8,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 const Home = lazy(() =>
   import('@/pages/Home').then((module) => ({ default: module.Home })),
 )
-const Features = lazy(() =>
-  import('@/pages/Features').then((module) => ({ default: module.Features })),
+const Spec = lazy(() =>
+  import('@/pages/Spec').then((module) => ({ default: module.Spec })),
 )
-const About = lazy(() =>
-  import('@/pages/About').then((module) => ({ default: module.About })),
+const Editor = lazy(() =>
+  import('@/pages/Editor').then((module) => ({ default: module.Editor })),
 )
 const NotFound = lazy(() =>
   import('@/pages/NotFound').then((module) => ({ default: module.NotFound })),
@@ -36,8 +36,8 @@ function App() {
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/features" element={<Features />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/spec" element={<Spec />} />
+              <Route path="/editor" element={<Editor />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

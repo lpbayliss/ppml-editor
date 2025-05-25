@@ -14,8 +14,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/features', label: 'Features' },
-    { path: '/about', label: 'About' },
+    { path: '/spec', label: 'Specification' },
+    { path: '/editor', label: 'Editor' },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -30,10 +30,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               {/* Logo */}
               <Link to="/" className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">R</span>
+                  <span className="text-white font-bold text-xl">P</span>
                 </div>
                 <span className="font-bold text-xl text-gray-900 dark:text-white">
-                  ReactApp
+                  PSML Editor
                 </span>
               </Link>
 
@@ -58,6 +58,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex items-center space-x-4">
               {/* Theme Toggle */}
               <button
+                type="button"
                 onClick={toggleTheme}
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
                 aria-label="Toggle theme"
@@ -87,6 +88,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
               {/* Mobile menu button */}
               <button
+                type="button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
                 aria-label="Toggle menu"
@@ -149,8 +151,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-gray-500 dark:text-gray-400">
             <p>
-              &copy; 2025 ReactApp. Built with React, TypeScript, and Tailwind
-              CSS.
+              &copy; 2025 PSML Editor. Prompt Specification Markup Language.
             </p>
           </div>
         </div>

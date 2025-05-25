@@ -4,34 +4,37 @@ import { Link } from 'react-router-dom'
 export const Home: React.FC = () => {
   const features = [
     {
-      icon: '⚡',
-      title: 'Lightning Fast',
-      description: 'Built with Vite for instant HMR and optimized builds',
+      icon: '📝',
+      title: 'Structured Prompts',
+      description:
+        'Create well-organized AI prompts using XML-based markup language',
     },
     {
-      icon: '🎨',
-      title: 'Beautiful UI',
-      description: 'Modern design with Tailwind CSS and smooth animations',
+      icon: '🔧',
+      title: 'Interactive Editor',
+      description: 'Build and validate PSML documents with real-time feedback',
     },
     {
-      icon: '🌙',
-      title: 'Dark Mode',
-      description: 'Automatic theme detection with manual toggle support',
+      icon: '📚',
+      title: 'Complete Specification',
+      description:
+        'Comprehensive documentation with examples and best practices',
     },
     {
-      icon: '📱',
-      title: 'Responsive',
-      description: 'Mobile-first design that works on all devices',
+      icon: '✅',
+      title: 'Validation',
+      description:
+        'Real-time validation ensures your PSML documents are correct',
+    },
+    {
+      icon: '🎯',
+      title: 'Reusable',
+      description: 'Create templates and reusable prompt components',
     },
     {
       icon: '🚀',
-      title: 'Production Ready',
-      description: 'Optimized for deployment with GitHub Actions CI/CD',
-    },
-    {
-      icon: '♿',
-      title: 'Accessible',
-      description: 'WCAG 2.1 AA compliant with semantic HTML',
+      title: 'Standardized',
+      description: 'Industry-standard approach to prompt engineering',
     },
   ]
 
@@ -51,45 +54,40 @@ export const Home: React.FC = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold mb-8">
-            <span className="gradient-text">Modern React</span>
+            <span className="gradient-text">PSML</span>
             <br />
-            <span className="text-gray-900 dark:text-white">Template</span>
+            <span className="text-gray-900 dark:text-white">Editor</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            A production-ready React application with TypeScript, Tailwind CSS,
-            and GitHub Pages deployment. Start building your next project with
-            modern best practices.
+            Prompt Specification Markup Language - A standardized XML-based
+            approach to creating, organizing, and managing AI prompts with
+            clarity and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/features" className="btn-primary">
-              Explore Features
+            <Link to="/editor" className="btn-primary">
+              Start Creating
             </Link>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              View on GitHub
-            </a>
+            <Link to="/spec" className="btn-secondary">
+              View Specification
+            </Link>
           </div>
 
-          {/* Tech stack badges */}
+          {/* PSML features badges */}
           <div className="mt-16 flex flex-wrap gap-4 justify-center">
             {[
-              'React',
-              'TypeScript',
-              'Vite',
-              'Tailwind CSS',
-              'GitHub Pages',
-            ].map((tech) => (
+              'XML-Based',
+              'Structured',
+              'Reusable',
+              'Validated',
+              'Standardized',
+            ].map((feature) => (
               <span
-                key={tech}
+                key={feature}
                 className="px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-lg"
               >
-                {tech}
+                {feature}
               </span>
             ))}
           </div>
@@ -101,17 +99,17 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Everything You Need
+              Why Choose PSML?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Built with modern tools and best practices
+              Standardize your prompt engineering workflow
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <div
-                key={index}
+                key={feature.title}
                 className="card transform hover:scale-105 transition-transform duration-300"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
@@ -131,17 +129,25 @@ export const Home: React.FC = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-500 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Ready to Start Building?
+            Ready to Create Better Prompts?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Clone this template and create something amazing
+            Start using PSML to structure and standardize your AI prompts
           </p>
-          <Link
-            to="/about"
-            className="inline-flex px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-200 hover:scale-105"
-          >
-            Learn More
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/editor"
+              className="inline-flex px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-200 hover:scale-105"
+            >
+              Try the Editor
+            </Link>
+            <Link
+              to="/spec"
+              className="inline-flex px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-purple-600 transform transition-all duration-200 hover:scale-105"
+            >
+              Read the Spec
+            </Link>
+          </div>
         </div>
       </section>
     </div>
