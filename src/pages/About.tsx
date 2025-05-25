@@ -1,17 +1,19 @@
-import React from 'react';
+import type React from 'react'
 
 export const About: React.FC = () => {
   const steps = [
     {
       number: '01',
       title: 'Clone the Repository',
-      description: 'Start by cloning this template repository to your local machine',
+      description:
+        'Start by cloning this template repository to your local machine',
       command: 'git clone https://github.com/yourusername/your-repo-name.git',
     },
     {
       number: '02',
       title: 'Install Dependencies',
-      description: 'Navigate to the project directory and install all required packages',
+      description:
+        'Navigate to the project directory and install all required packages',
       command: 'cd your-repo-name && pnpm install',
     },
     {
@@ -26,16 +28,19 @@ export const About: React.FC = () => {
       description: 'Create an optimized production build for deployment',
       command: 'pnpm run build',
     },
-  ];
+  ]
 
   const techStack = [
-    { name: 'React 19', description: 'UI library for building user interfaces' },
+    {
+      name: 'React 19',
+      description: 'UI library for building user interfaces',
+    },
     { name: 'TypeScript 5', description: 'JavaScript with syntax for types' },
     { name: 'Vite 6', description: 'Next generation frontend tooling' },
     { name: 'Tailwind CSS 4', description: 'Utility-first CSS framework' },
     { name: 'React Router 7', description: 'Declarative routing for React' },
     { name: 'GitHub Actions', description: 'CI/CD automation platform' },
-  ];
+  ]
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -58,9 +63,10 @@ export const About: React.FC = () => {
               Why This Template?
             </h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              This template provides a solid foundation for building modern React applications.
-              It comes pre-configured with industry-standard tools and best practices, allowing
-              you to focus on building features rather than setting up infrastructure.
+              This template provides a solid foundation for building modern
+              React applications. It comes pre-configured with industry-standard
+              tools and best practices, allowing you to focus on building
+              features rather than setting up infrastructure.
             </p>
             <ul className="space-y-2 text-gray-700 dark:text-gray-300">
               <li className="flex items-start">
@@ -141,8 +147,8 @@ export const About: React.FC = () => {
               GitHub Pages Deployment
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              This template is configured to automatically deploy to GitHub Pages when you push
-              to the main branch. To enable deployment:
+              This template is configured to automatically deploy to GitHub
+              Pages when you push to the main branch. To enable deployment:
             </p>
             <ol className="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300">
               <li>Go to your repository settings on GitHub</li>
@@ -152,7 +158,8 @@ export const About: React.FC = () => {
             </ol>
             <div className="mt-6 p-4 bg-yellow-100 dark:bg-yellow-900/20 rounded-lg">
               <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                <strong>Note:</strong> Update the base path in vite.config.ts to match your repository name
+                <strong>Note:</strong> Update the base path in vite.config.ts to
+                match your repository name
               </p>
             </div>
           </div>
@@ -187,5 +194,5 @@ export const About: React.FC = () => {
         </section>
       </div>
     </div>
-  );
-}; 
+  )
+}

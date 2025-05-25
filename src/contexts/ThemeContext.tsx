@@ -1,49 +1,52 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import type React from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 interface ThemeContextType {
-  isDark: boolean;
-  toggleTheme: () => void;
+  isDark: boolean
+  toggleTheme: () => void
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
+  const context = useContext(ThemeContext)
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error('useTheme must be used within a ThemeProvider')
   }
-  return context;
-};
+  return context
+}
 
 interface ThemeProviderProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark' || 
-      (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  });
+    const savedTheme = localStorage.getItem('theme')
+    return (
+      savedTheme === 'dark' ||
+      (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    )
+  })
 
   useEffect(() => {
-    const root = document.documentElement;
+    const root = document.documentElement
     if (isDark) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      root.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
     } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      root.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
     }
-  }, [isDark]);
+  }, [isDark])
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
+    setIsDark(!isDark)
+  }
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
-  );
-}; 
+  )
+}

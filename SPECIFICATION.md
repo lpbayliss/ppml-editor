@@ -3,16 +3,16 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
-The Prompt Specification Markup Language (PPSL) is an XML-based markup language designed to standardize the creation, storage, and processing of AI prompts. PPSL provides a structured, semantic approach to prompt engineering that enhances clarity, reusability, and maintainability.
+The Prompt Specification Markup Language (PSML) is an XML-based markup language designed to standardize the creation, storage, and processing of AI prompts. PSML provides a structured, semantic approach to prompt engineering that enhances clarity, reusability, and maintainability.
 
 ### 1.2 Scope
-This specification defines the syntax, semantics, and processing model for PPSL documents. It is intended for:
+This specification defines the syntax, semantics, and processing model for PSML documents. It is intended for:
 - Prompt engineers and AI developers
-- Tool developers creating PPSL processors
+- Tool developers creating PSML processors
 - Organizations standardizing their prompt engineering practices
 
 ### 1.3 Conformance
-A conforming PPSL document must be well-formed XML and validate against the PPSL schema defined in this specification. Processors must handle all required elements.
+A conforming PSML document must be well-formed XML and validate against the PSML schema defined in this specification. Processors must handle all required elements.
 
 ### 1.4 Terminology
 - **MUST**: Absolute requirement
@@ -24,7 +24,7 @@ A conforming PPSL document must be well-formed XML and validate against the PPSL
 ## 2. Document Structure
 
 ### 2.1 XML Declaration
-All PPSL documents MUST begin with an XML declaration:
+All PSML documents MUST begin with an XML declaration:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 ```
@@ -38,7 +38,7 @@ The root element MUST be `<prompt>`:
 ```
 
 Required attributes:
-- `version`: PPSL version (currently "1.0")
+- `version`: PSML version (currently "1.0")
 
 Optional attributes:
 - `model`: Target AI model identifier
@@ -325,7 +325,7 @@ Processors MUST:
 ## 7. Validation
 
 ### 7.1 Schema Validation
-PPSL documents MUST:
+PSML documents MUST:
 - Be well-formed XML
 - Include required `<prompt>` root with version
 - Use only defined elements and attributes
@@ -503,5 +503,5 @@ prompt
 
 ---
 
-This specification is maintained by the PPSL Standards Committee.
-For updates and errata, visit: http://ppsl.org/spec
+This specification is maintained by the PSML Standards Committee.
+For updates and errata, visit: https://lpbayliss.github.io/psml/spec

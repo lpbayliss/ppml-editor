@@ -1,13 +1,22 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@/contexts/ThemeContext';
-import { Layout } from '@/layouts/Layout';
+import { ThemeProvider } from '@/contexts/ThemeContext'
+import { Layout } from '@/layouts/Layout'
+import type React from 'react'
+import { Suspense, lazy } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 // Lazy load pages for code splitting
-const Home = lazy(() => import('@/pages/Home').then(module => ({ default: module.Home })));
-const Features = lazy(() => import('@/pages/Features').then(module => ({ default: module.Features })));
-const About = lazy(() => import('@/pages/About').then(module => ({ default: module.About })));
-const NotFound = lazy(() => import('@/pages/NotFound').then(module => ({ default: module.NotFound })));
+const Home = lazy(() =>
+  import('@/pages/Home').then((module) => ({ default: module.Home })),
+)
+const Features = lazy(() =>
+  import('@/pages/Features').then((module) => ({ default: module.Features })),
+)
+const About = lazy(() =>
+  import('@/pages/About').then((module) => ({ default: module.About })),
+)
+const NotFound = lazy(() =>
+  import('@/pages/NotFound').then((module) => ({ default: module.NotFound })),
+)
 
 // Loading component
 const Loading: React.FC = () => (
@@ -17,7 +26,7 @@ const Loading: React.FC = () => (
       <p className="mt-4 text-gray-600 dark:text-gray-400">Loading...</p>
     </div>
   </div>
-);
+)
 
 function App() {
   return (
@@ -35,7 +44,7 @@ function App() {
         </Layout>
       </BrowserRouter>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App

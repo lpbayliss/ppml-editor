@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import type React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Home: React.FC = () => {
   const features = [
@@ -33,7 +33,7 @@ export const Home: React.FC = () => {
       title: 'Accessible',
       description: 'WCAG 2.1 AA compliant with semantic HTML',
     },
-  ];
+  ]
 
   return (
     <div className="relative overflow-hidden">
@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
       <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-900" />
-        
+
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-color-dodge filter blur-xl opacity-70 animate-float" />
@@ -55,17 +55,18 @@ export const Home: React.FC = () => {
             <br />
             <span className="text-gray-900 dark:text-white">Template</span>
           </h1>
-          
+
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-            A production-ready React application with TypeScript, Tailwind CSS, and GitHub Pages deployment. 
-            Start building your next project with modern best practices.
+            A production-ready React application with TypeScript, Tailwind CSS,
+            and GitHub Pages deployment. Start building your next project with
+            modern best practices.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/features" className="btn-primary">
               Explore Features
             </Link>
-            <a 
+            <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,7 +78,13 @@ export const Home: React.FC = () => {
 
           {/* Tech stack badges */}
           <div className="mt-16 flex flex-wrap gap-4 justify-center">
-            {['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'GitHub Pages'].map((tech) => (
+            {[
+              'React',
+              'TypeScript',
+              'Vite',
+              'Tailwind CSS',
+              'GitHub Pages',
+            ].map((tech) => (
               <span
                 key={tech}
                 className="px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 shadow-lg"
@@ -138,5 +145,5 @@ export const Home: React.FC = () => {
         </div>
       </section>
     </div>
-  );
-}; 
+  )
+}

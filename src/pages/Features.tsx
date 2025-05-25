@@ -1,10 +1,11 @@
-import React from 'react';
+import type React from 'react'
 
 export const Features: React.FC = () => {
   const features = [
     {
       title: 'Modern React with Hooks',
-      description: 'Built with the latest React features including hooks, suspense, and error boundaries.',
+      description:
+        'Built with the latest React features including hooks, suspense, and error boundaries.',
       code: `const MyComponent: React.FC = () => {
   const [count, setCount] = useState(0);
   
@@ -17,7 +18,8 @@ export const Features: React.FC = () => {
     },
     {
       title: 'TypeScript Support',
-      description: 'Full TypeScript support with strict mode enabled for better type safety and IDE experience.',
+      description:
+        'Full TypeScript support with strict mode enabled for better type safety and IDE experience.',
       code: `interface User {
   id: number;
   name: string;
@@ -31,7 +33,8 @@ const getUser = async (id: number): Promise<User> => {
     },
     {
       title: 'Tailwind CSS',
-      description: 'Utility-first CSS framework for rapid UI development with automatic dark mode support.',
+      description:
+        'Utility-first CSS framework for rapid UI development with automatic dark mode support.',
       code: `<div className="bg-white dark:bg-gray-800 rounded-lg 
   shadow-xl p-6 hover:shadow-2xl transition-all">
   <h3 className="text-2xl font-bold gradient-text">
@@ -41,7 +44,8 @@ const getUser = async (id: number): Promise<User> => {
     },
     {
       title: 'Vite Build System',
-      description: 'Lightning-fast HMR and optimized production builds with code splitting and tree shaking.',
+      description:
+        'Lightning-fast HMR and optimized production builds with code splitting and tree shaking.',
       code: `// vite.config.ts
 export default defineConfig({
   plugins: [react()],
@@ -58,7 +62,8 @@ export default defineConfig({
     },
     {
       title: 'GitHub Actions CI/CD',
-      description: 'Automated deployment to GitHub Pages on every push to the main branch.',
+      description:
+        'Automated deployment to GitHub Pages on every push to the main branch.',
       code: `name: Deploy to GitHub Pages
 on:
   push:
@@ -73,7 +78,8 @@ jobs:
     },
     {
       title: 'Client-Side Routing',
-      description: 'React Router configured for GitHub Pages with proper base path handling.',
+      description:
+        'React Router configured for GitHub Pages with proper base path handling.',
       code: `<BrowserRouter basename={import.meta.env.BASE_URL}>
   <Routes>
     <Route path="/" element={<Home />} />
@@ -82,7 +88,7 @@ jobs:
   </Routes>
 </BrowserRouter>`,
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
@@ -92,7 +98,8 @@ jobs:
             Features
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Everything you need to build modern, production-ready React applications
+            Everything you need to build modern, production-ready React
+            applications
           </p>
         </div>
 
@@ -113,12 +120,22 @@ jobs:
                 </p>
                 <div className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400">
                   <span>Learn more</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </div>
               </div>
-              
+
               <div className="flex-1 w-full">
                 <div className="bg-gray-900 dark:bg-gray-950 rounded-lg overflow-hidden shadow-2xl">
                   <div className="flex items-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-900 border-b border-gray-700">
@@ -127,7 +144,9 @@ jobs:
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
                   <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm text-gray-300">{feature.code}</code>
+                    <code className="text-sm text-gray-300">
+                      {feature.code}
+                    </code>
                   </pre>
                 </div>
               </div>
@@ -156,12 +175,14 @@ jobs:
                 key={item}
                 className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-center hover:shadow-lg transition-shadow"
               >
-                <span className="text-gray-900 dark:text-gray-100 font-medium">{item}</span>
+                <span className="text-gray-900 dark:text-gray-100 font-medium">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </div>
     </div>
-  );
-}; 
+  )
+}

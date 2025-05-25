@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import type React from 'react'
+import { Link } from 'react-router-dom'
 
 export const NotFound: React.FC = () => {
   return (
@@ -10,12 +10,13 @@ export const NotFound: React.FC = () => {
           Page Not Found
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-          The page you're looking for doesn't exist. It might have been moved or deleted.
+          The page you're looking for doesn't exist. It might have been moved or
+          deleted.
         </p>
         <Link to="/" className="btn-primary">
           Go Back Home
         </Link>
       </div>
     </div>
-  );
-}; 
+  )
+}
