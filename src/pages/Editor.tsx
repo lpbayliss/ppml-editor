@@ -1,12 +1,9 @@
-import type React from 'react'
-import { useState } from 'react'
 import { BlockEditor } from '@/components/BlockEditor'
+import type React from 'react'
 
 export const Editor: React.FC = () => {
-  const [generatedXML, setGeneratedXML] = useState('')
-
-  const handleXMLChange = (xml: string) => {
-    setGeneratedXML(xml)
+  const handleXMLChange = (_xml: string) => {
+    // XML change handler - could be used for real-time updates
   }
 
   return (
@@ -20,7 +17,7 @@ export const Editor: React.FC = () => {
             Build your prompts visually with drag-and-drop blocks
           </p>
         </div>
-        
+
         <div className="flex-1 overflow-hidden">
           <BlockEditor onXMLChange={handleXMLChange} />
         </div>

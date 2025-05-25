@@ -1,5 +1,5 @@
-import React from 'react'
-import { BlockType, BLOCK_DEFINITIONS } from '../types/blocks'
+import type React from 'react'
+import { BLOCK_DEFINITIONS, type BlockType } from '../types/blocks'
 
 interface BlockPaletteProps {
   onAddBlock: (blockType: BlockType, parentId?: string) => void
@@ -7,11 +7,20 @@ interface BlockPaletteProps {
 
 export const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
   const blockCategories = {
-    'Core': ['role', 'context', 'task', 'output'] as BlockType[],
-    'Context': ['background', 'domain'] as BlockType[],
-    'Task Details': ['description', 'objectives', 'objective', 'steps', 'step', 'examples', 'example', 'evaluation'] as BlockType[],
-    'Constraints': ['constraints', 'constraint', 'rules', 'rule'] as BlockType[],
-    'Output': ['template', 'field'] as BlockType[]
+    Core: ['role', 'context', 'task', 'output'] as BlockType[],
+    Context: ['background', 'domain'] as BlockType[],
+    'Task Details': [
+      'description',
+      'objectives',
+      'objective',
+      'steps',
+      'step',
+      'examples',
+      'example',
+      'evaluation',
+    ] as BlockType[],
+    Constraints: ['constraints', 'constraint', 'rules', 'rule'] as BlockType[],
+    Output: ['template', 'field'] as BlockType[],
   }
 
   return (
@@ -19,7 +28,7 @@ export const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
       <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
         Block Palette
       </h2>
-      
+
       <div className="space-y-6">
         {Object.entries(blockCategories).map(([category, blocks]) => (
           <div key={category}>
@@ -27,7 +36,7 @@ export const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
               {category}
             </h3>
             <div className="space-y-2">
-              {blocks.map(blockType => {
+              {blocks.map((blockType) => {
                 const definition = BLOCK_DEFINITIONS[blockType]
                 return (
                   <button
@@ -53,7 +62,7 @@ export const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
           </div>
         ))}
       </div>
-      
+
       <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
         <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-2">
           💡 How to use
@@ -67,4 +76,4 @@ export const BlockPalette: React.FC<BlockPaletteProps> = ({ onAddBlock }) => {
       </div>
     </div>
   )
-} 
+}

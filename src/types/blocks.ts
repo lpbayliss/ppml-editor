@@ -1,4 +1,4 @@
-export type BlockType = 
+export type BlockType =
   | 'prompt'
   | 'role'
   | 'context'
@@ -58,12 +58,24 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     color: 'bg-blue-500',
     icon: '🎯',
     allowedParents: [],
-    allowedChildren: ['role', 'context', 'task', 'constraints', 'rules', 'output'],
+    allowedChildren: [
+      'role',
+      'context',
+      'task',
+      'constraints',
+      'rules',
+      'output',
+    ],
     defaultProperties: { version: '1.0' },
     propertyFields: [
       { name: 'version', label: 'Version', type: 'text', required: true },
-      { name: 'model', label: 'Model', type: 'select', options: ['gpt-4', 'gpt-3.5-turbo', 'claude-3'] }
-    ]
+      {
+        name: 'model',
+        label: 'Model',
+        type: 'select',
+        options: ['gpt-4', 'gpt-3.5-turbo', 'claude-3'],
+      },
+    ],
   },
   role: {
     type: 'role',
@@ -75,10 +87,25 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'expertise', label: 'Expertise', type: 'text', placeholder: 'e.g., expert, beginner' },
-      { name: 'tone', label: 'Tone', type: 'text', placeholder: 'e.g., helpful, professional' },
-      { name: 'content', label: 'Role Description', type: 'textarea', required: true }
-    ]
+      {
+        name: 'expertise',
+        label: 'Expertise',
+        type: 'text',
+        placeholder: 'e.g., expert, beginner',
+      },
+      {
+        name: 'tone',
+        label: 'Tone',
+        type: 'text',
+        placeholder: 'e.g., helpful, professional',
+      },
+      {
+        name: 'content',
+        label: 'Role Description',
+        type: 'textarea',
+        required: true,
+      },
+    ],
   },
   context: {
     type: 'context',
@@ -90,8 +117,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: ['background', 'domain'],
     defaultProperties: {},
     propertyFields: [
-      { name: 'priority', label: 'Priority', type: 'select', options: ['low', 'medium', 'high'] }
-    ]
+      {
+        name: 'priority',
+        label: 'Priority',
+        type: 'select',
+        options: ['low', 'medium', 'high'],
+      },
+    ],
   },
   background: {
     type: 'background',
@@ -103,8 +135,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Background', type: 'textarea', required: true }
-    ]
+      {
+        name: 'content',
+        label: 'Background',
+        type: 'textarea',
+        required: true,
+      },
+    ],
   },
   domain: {
     type: 'domain',
@@ -116,8 +153,8 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Domain', type: 'text', required: true }
-    ]
+      { name: 'content', label: 'Domain', type: 'text', required: true },
+    ],
   },
   task: {
     type: 'task',
@@ -126,12 +163,23 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     color: 'bg-orange-500',
     icon: '✅',
     allowedParents: ['prompt'],
-    allowedChildren: ['description', 'objectives', 'steps', 'examples', 'evaluation'],
+    allowedChildren: [
+      'description',
+      'objectives',
+      'steps',
+      'examples',
+      'evaluation',
+    ],
     defaultProperties: {},
     propertyFields: [
       { name: 'id', label: 'Task ID', type: 'text' },
-      { name: 'priority', label: 'Priority', type: 'select', options: ['low', 'medium', 'high'] }
-    ]
+      {
+        name: 'priority',
+        label: 'Priority',
+        type: 'select',
+        options: ['low', 'medium', 'high'],
+      },
+    ],
   },
   description: {
     type: 'description',
@@ -143,8 +191,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Description', type: 'textarea', required: true }
-    ]
+      {
+        name: 'content',
+        label: 'Description',
+        type: 'textarea',
+        required: true,
+      },
+    ],
   },
   objectives: {
     type: 'objectives',
@@ -155,7 +208,7 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedParents: ['task'],
     allowedChildren: ['objective'],
     defaultProperties: {},
-    propertyFields: []
+    propertyFields: [],
   },
   objective: {
     type: 'objective',
@@ -167,8 +220,8 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Objective', type: 'text', required: true }
-    ]
+      { name: 'content', label: 'Objective', type: 'text', required: true },
+    ],
   },
   steps: {
     type: 'steps',
@@ -179,9 +232,7 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedParents: ['task'],
     allowedChildren: ['step'],
     defaultProperties: {},
-    propertyFields: [
-      { name: 'ordered', label: 'Ordered', type: 'boolean' }
-    ]
+    propertyFields: [{ name: 'ordered', label: 'Ordered', type: 'boolean' }],
   },
   step: {
     type: 'step',
@@ -194,8 +245,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     defaultProperties: {},
     propertyFields: [
       { name: 'number', label: 'Step Number', type: 'number' },
-      { name: 'content', label: 'Step Description', type: 'text', required: true }
-    ]
+      {
+        name: 'content',
+        label: 'Step Description',
+        type: 'text',
+        required: true,
+      },
+    ],
   },
   examples: {
     type: 'examples',
@@ -206,7 +262,7 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedParents: ['task'],
     allowedChildren: ['example'],
     defaultProperties: {},
-    propertyFields: []
+    propertyFields: [],
   },
   example: {
     type: 'example',
@@ -218,8 +274,8 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Example', type: 'textarea', required: true }
-    ]
+      { name: 'content', label: 'Example', type: 'textarea', required: true },
+    ],
   },
   evaluation: {
     type: 'evaluation',
@@ -231,8 +287,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Evaluation Criteria', type: 'textarea', required: true }
-    ]
+      {
+        name: 'content',
+        label: 'Evaluation Criteria',
+        type: 'textarea',
+        required: true,
+      },
+    ],
   },
   constraints: {
     type: 'constraints',
@@ -243,7 +304,7 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedParents: ['prompt'],
     allowedChildren: ['constraint'],
     defaultProperties: {},
-    propertyFields: []
+    propertyFields: [],
   },
   constraint: {
     type: 'constraint',
@@ -255,9 +316,14 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'type', label: 'Type', type: 'text', placeholder: 'e.g., tone, length' },
-      { name: 'content', label: 'Constraint', type: 'text', required: true }
-    ]
+      {
+        name: 'type',
+        label: 'Type',
+        type: 'text',
+        placeholder: 'e.g., tone, length',
+      },
+      { name: 'content', label: 'Constraint', type: 'text', required: true },
+    ],
   },
   rules: {
     type: 'rules',
@@ -268,7 +334,7 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedParents: ['prompt'],
     allowedChildren: ['rule'],
     defaultProperties: {},
-    propertyFields: []
+    propertyFields: [],
   },
   rule: {
     type: 'rule',
@@ -280,9 +346,14 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'priority', label: 'Priority', type: 'select', options: ['must', 'should', 'could'] },
-      { name: 'content', label: 'Rule', type: 'text', required: true }
-    ]
+      {
+        name: 'priority',
+        label: 'Priority',
+        type: 'select',
+        options: ['must', 'should', 'could'],
+      },
+      { name: 'content', label: 'Rule', type: 'text', required: true },
+    ],
   },
   output: {
     type: 'output',
@@ -294,8 +365,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: ['template', 'field'],
     defaultProperties: {},
     propertyFields: [
-      { name: 'format', label: 'Format', type: 'select', options: ['markdown', 'json', 'xml', 'structured'] }
-    ]
+      {
+        name: 'format',
+        label: 'Format',
+        type: 'select',
+        options: ['markdown', 'json', 'xml', 'structured'],
+      },
+    ],
   },
   template: {
     type: 'template',
@@ -307,8 +383,8 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     allowedChildren: [],
     defaultProperties: {},
     propertyFields: [
-      { name: 'content', label: 'Template', type: 'textarea', required: true }
-    ]
+      { name: 'content', label: 'Template', type: 'textarea', required: true },
+    ],
   },
   field: {
     type: 'field',
@@ -321,8 +397,13 @@ export const BLOCK_DEFINITIONS: Record<BlockType, BlockDefinition> = {
     defaultProperties: {},
     propertyFields: [
       { name: 'name', label: 'Field Name', type: 'text', required: true },
-      { name: 'type', label: 'Field Type', type: 'select', options: ['string', 'number', 'boolean', 'array', 'object'] },
-      { name: 'required', label: 'Required', type: 'boolean' }
-    ]
-  }
-} 
+      {
+        name: 'type',
+        label: 'Field Type',
+        type: 'select',
+        options: ['string', 'number', 'boolean', 'array', 'object'],
+      },
+      { name: 'required', label: 'Required', type: 'boolean' },
+    ],
+  },
+}

@@ -1,5 +1,5 @@
-import React from 'react'
-import { BlockType } from '../types/blocks'
+import type React from 'react'
+import type { BlockType } from '../types/blocks'
 
 interface Template {
   id: string
@@ -31,8 +31,8 @@ const TEMPLATES: Template[] = [
       {
         type: 'role',
         properties: {
-          content: 'You are a helpful AI assistant.'
-        }
+          content: 'You are a helpful AI assistant.',
+        },
       },
       {
         type: 'task',
@@ -41,12 +41,12 @@ const TEMPLATES: Template[] = [
           {
             type: 'description',
             properties: {
-              content: 'Help the user with their request'
-            }
-          }
-        ]
-      }
-    ]
+              content: 'Help the user with their request',
+            },
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'code-review',
@@ -59,8 +59,9 @@ const TEMPLATES: Template[] = [
         properties: {
           expertise: 'expert',
           tone: 'professional',
-          content: 'You are a senior software engineer specializing in code review.'
-        }
+          content:
+            'You are a senior software engineer specializing in code review.',
+        },
       },
       {
         type: 'context',
@@ -69,16 +70,16 @@ const TEMPLATES: Template[] = [
           {
             type: 'background',
             properties: {
-              content: 'User needs help reviewing code for best practices'
-            }
+              content: 'User needs help reviewing code for best practices',
+            },
           },
           {
             type: 'domain',
             properties: {
-              content: 'Software Development'
-            }
-          }
-        ]
+              content: 'Software Development',
+            },
+          },
+        ],
       },
       {
         type: 'task',
@@ -87,14 +88,15 @@ const TEMPLATES: Template[] = [
           {
             type: 'description',
             properties: {
-              content: 'Review the provided code for best practices and potential issues'
-            }
+              content:
+                'Review the provided code for best practices and potential issues',
+            },
           },
           {
             type: 'objectives',
-            properties: {}
-          }
-        ]
+            properties: {},
+          },
+        ],
       },
       {
         type: 'constraints',
@@ -104,12 +106,12 @@ const TEMPLATES: Template[] = [
             type: 'constraint',
             properties: {
               type: 'focus',
-              content: 'Focus on maintainability and performance'
-            }
-          }
-        ]
-      }
-    ]
+              content: 'Focus on maintainability and performance',
+            },
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'creative-writing',
@@ -122,8 +124,9 @@ const TEMPLATES: Template[] = [
         properties: {
           expertise: 'expert',
           tone: 'creative',
-          content: 'You are a creative writing assistant with expertise in storytelling.'
-        }
+          content:
+            'You are a creative writing assistant with expertise in storytelling.',
+        },
       },
       {
         type: 'task',
@@ -132,14 +135,14 @@ const TEMPLATES: Template[] = [
           {
             type: 'description',
             properties: {
-              content: 'Help create engaging and creative written content'
-            }
+              content: 'Help create engaging and creative written content',
+            },
           },
           {
             type: 'objectives',
-            properties: {}
-          }
-        ]
+            properties: {},
+          },
+        ],
       },
       {
         type: 'rules',
@@ -149,23 +152,26 @@ const TEMPLATES: Template[] = [
             type: 'rule',
             properties: {
               priority: 'must',
-              content: 'Be creative and engaging'
-            }
+              content: 'Be creative and engaging',
+            },
           },
           {
             type: 'rule',
             properties: {
               priority: 'should',
-              content: 'Use vivid descriptions and compelling narratives'
-            }
-          }
-        ]
-      }
-    ]
-  }
+              content: 'Use vivid descriptions and compelling narratives',
+            },
+          },
+        ],
+      },
+    ],
+  },
 ]
 
-export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelectTemplate, onClose }) => {
+export const TemplateSelector: React.FC<TemplateSelectorProps> = ({
+  onSelectTemplate,
+  onClose,
+}) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full mx-4 max-h-[80vh] flex flex-col">
@@ -178,8 +184,18 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelectTemp
               onClick={onClose}
               className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -187,7 +203,7 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelectTemp
             Start with a pre-built template or create your own from scratch
           </p>
         </div>
-        
+
         <div className="p-6 overflow-y-auto flex-1">
           <div className="grid gap-4">
             {/* Start from scratch option */}
@@ -207,9 +223,9 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelectTemp
                 </div>
               </div>
             </button>
-            
+
             {/* Template options */}
-            {TEMPLATES.map(template => (
+            {TEMPLATES.map((template) => (
               <button
                 key={template.id}
                 onClick={() => onSelectTemplate(template)}
@@ -233,4 +249,4 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({ onSelectTemp
       </div>
     </div>
   )
-} 
+}

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { Block, BlockType } from '../types/blocks'
+import type React from 'react'
+import { useState } from 'react'
+import type { Block, BlockType } from '../types/blocks'
 import { BlockComponent } from './BlockComponent'
 
 interface BlockCanvasProps {
@@ -7,6 +8,11 @@ interface BlockCanvasProps {
   onUpdateBlock: (blockId: string, properties: Record<string, any>) => void
   onRemoveBlock: (blockId: string) => void
   onAddBlock: (blockType: BlockType, parentId?: string) => void
+  onMoveBlock: (
+    draggedBlockId: string,
+    targetBlockId: string,
+    position: 'before' | 'after',
+  ) => void
   onGenerateXML: () => string
   hasStarted?: boolean
 }
@@ -16,8 +22,9 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
   onUpdateBlock,
   onRemoveBlock,
   onAddBlock,
+  onMoveBlock,
   onGenerateXML,
-  hasStarted = false
+  hasStarted = false,
 }) => {
   const [generatedXML, setGeneratedXML] = useState('')
   const [showXML, setShowXML] = useState(false)
@@ -39,7 +46,7 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
 
   const renderBlock = (block: Block, depth = 0): React.ReactNode => {
     const children = block.children
-      .map(childId => blocks.find(b => b.id === childId))
+      .map((childId) => blocks.find((b) => b.id === childId))
       .filter(Boolean) as Block[]
 
     return (
@@ -49,18 +56,19 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
           onUpdate={onUpdateBlock}
           onRemove={onRemoveBlock}
           onAddChild={onAddBlock}
+          onMove={onMoveBlock}
           depth={depth}
         />
         {children.length > 0 && (
           <div className="mt-2">
-            {children.map(child => renderBlock(child, depth + 1))}
+            {children.map((child) => renderBlock(child, depth + 1))}
           </div>
         )}
       </div>
     )
   }
 
-  const rootBlock = blocks.find(b => b.id === 'root')
+  const rootBlock = blocks.find((b) => b.id === 'root')
 
   return (
     <div className="flex-1 flex flex-col">
@@ -92,20 +100,24 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
       {/* Canvas */}
       <div className="flex-1 p-6 overflow-auto">
         {rootBlock ? (
-          <div className="max-w-4xl mx-auto">
-            {renderBlock(rootBlock)}
-          </div>
+          <div className="max-w-4xl mx-auto">{renderBlock(rootBlock)}</div>
         ) : hasStarted ? (
           <div className="text-center text-gray-500 dark:text-gray-400 mt-20">
             <div className="text-6xl mb-4">🎯</div>
-            <h3 className="text-xl font-medium mb-2">Start Building Your Prompt</h3>
+            <h3 className="text-xl font-medium mb-2">
+              Start Building Your Prompt
+            </h3>
             <p>Select blocks from the palette on the left to begin</p>
           </div>
         ) : (
           <div className="text-center text-gray-500 dark:text-gray-400 mt-20">
             <div className="text-6xl mb-4">✨</div>
-            <h3 className="text-xl font-medium mb-2">Welcome to the Visual PSML Editor</h3>
-            <p>Choose a template to get started or create your own from scratch</p>
+            <h3 className="text-xl font-medium mb-2">
+              Welcome to the Visual PSML Editor
+            </h3>
+            <p>
+              Choose a template to get started or create your own from scratch
+            </p>
           </div>
         )}
       </div>
@@ -145,4 +157,4 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
       )}
     </div>
   )
-} 
+}
