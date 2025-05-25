@@ -15,6 +15,8 @@ interface BlockCanvasProps {
   ) => void
   onGenerateXML: () => string
   hasStarted?: boolean
+  lastModified?: string
+  title?: string
 }
 
 export const BlockCanvas: React.FC<BlockCanvasProps> = ({
@@ -25,6 +27,8 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
   onMoveBlock,
   onGenerateXML,
   hasStarted = false,
+  lastModified,
+  title,
 }) => {
   const [generatedXML, setGeneratedXML] = useState('')
   const [showXML, setShowXML] = useState(false)
@@ -75,9 +79,16 @@ export const BlockCanvas: React.FC<BlockCanvasProps> = ({
       {/* Header */}
       <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-            Visual Prompt Builder
-          </h2>
+          <div>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+              {title || 'Visual Prompt Builder'}
+            </h2>
+            {lastModified && (
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                Last saved: {new Date(lastModified).toLocaleString()}
+              </p>
+            )}
+          </div>
           <div className="flex gap-2">
             <button
               onClick={handleGenerateXML}

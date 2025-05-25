@@ -1,6 +1,6 @@
-# Modern React Template 🚀
+# PSML Editor 🚀
 
-A production-ready React application template with TypeScript, Tailwind CSS, and GitHub Pages deployment. This template provides everything you need to start building modern web applications with best practices and optimal developer experience.
+A visual editor for Prompt Specification Markup Language (PSML) - a standardized XML-based approach to creating, organizing, and managing AI prompts with clarity and precision.
 
 ![React](https://img.shields.io/badge/React-19.1-blue?logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)
@@ -10,17 +10,41 @@ A production-ready React application template with TypeScript, Tailwind CSS, and
 
 ## ✨ Features
 
-- ⚡ **Lightning Fast** - Built with Vite for instant HMR and optimized builds
-- 🎨 **Beautiful UI** - Modern design with Tailwind CSS v4 and smooth animations
+- 🎯 **Visual Block Editor** - Drag-and-drop interface for building PSML documents
+- 💾 **Auto-Save** - Automatic persistence using session storage
+- 🔄 **Real-time XML Generation** - Live preview of generated PSML XML
+- 📋 **Template System** - Pre-built templates for common prompt patterns
 - 🌙 **Dark Mode** - Automatic theme detection with manual toggle support
 - 📱 **Responsive** - Mobile-first design that works on all devices
-- 🚀 **Production Ready** - Optimized for deployment with GitHub Actions CI/CD
-- ♿ **Accessible** - WCAG 2.1 AA compliant with semantic HTML
 - 🔧 **TypeScript** - Full TypeScript support with strict mode enabled
-- 📦 **Code Splitting** - Automatic code splitting for optimal bundle sizes
-- 🛣️ **Client-side Routing** - React Router configured for GitHub Pages
-- 🎯 **SEO Optimized** - Meta tags and structured data for better search visibility
-- 🎨 **Tailwind CSS v4** - Latest version with CSS-first configuration
+- ✅ **PSML Validation** - Built-in validation for PSML specification compliance
+- 🎨 **Modern UI** - Beautiful interface with Tailwind CSS v4
+- 🚀 **Production Ready** - Optimized for deployment with GitHub Actions CI/CD
+
+## 💾 Document Persistence
+
+The PSML Editor automatically saves your work as you build your prompts:
+
+- **Session Storage**: Documents are automatically saved to browser session storage
+- **Auto-Save**: Changes are persisted immediately as you edit
+- **Navigation Safe**: Your work persists when navigating between pages
+- **Reload Safe**: Documents are restored when you refresh the page
+- **Last Modified**: Visual indicator shows when your document was last saved
+
+### How It Works
+
+1. **Automatic Persistence**: Every change to your document (adding blocks, editing properties, reordering) is automatically saved
+2. **Session-Based**: Uses browser session storage, so documents persist until you close the browser tab
+3. **Visual Feedback**: The editor shows "Last saved" timestamp in the header
+4. **New Document**: Use the "New Document" button to start fresh (with confirmation dialog)
+
+### Storage Details
+
+- **Storage Type**: Session Storage (not Local Storage)
+- **Storage Key**: `psml-editor-document`
+- **Data Stored**: Complete document state including blocks, properties, and metadata
+- **Size Limit**: Typically 5-10MB per domain (browser dependent)
+- **Lifetime**: Until browser tab/window is closed
 
 ## 🚀 Quick Start
 
