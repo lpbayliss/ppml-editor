@@ -2,13 +2,13 @@
   "name": "Modern React Template",
   "short_name": "React App",
   "description": "A production-ready React application template with TypeScript and Tailwind CSS",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "theme_color": "#3b82f6",
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/vite.svg",
+      "src": "./vite.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
