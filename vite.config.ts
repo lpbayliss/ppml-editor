@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => {
-  const base = command === 'build' ? '/ppml-editor/' : '/'
+  const base = command === 'build' ? '/psml-editor/' : '/'
   
   return {
     plugins: [react()],
