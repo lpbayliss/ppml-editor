@@ -1,4 +1,4 @@
-// PPSL Validator Type Definitions
+// PSML Validator Type Definitions
 
 export interface ValidationResult {
   isValid: boolean
@@ -47,7 +47,7 @@ export interface AttributeDefinition {
   pattern?: RegExp
 }
 
-export interface PPSLDocument {
+export interface PSMLDocument {
   version: string
   model?: string
   purpose?: string

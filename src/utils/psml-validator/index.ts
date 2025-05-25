@@ -1,6 +1,6 @@
-// PPSL Validator - Main exports
+// PSML Validator - Main exports
 
-export { PPSLValidator, ppslValidator } from './validator'
+export { PSMLValidator, psmlValidator } from './validator'
 export type {
   ValidationResult,
   ValidationError,
@@ -14,7 +14,7 @@ export type {
   SchemaMode,
 } from './types'
 export {
-  PPSLSchema,
+  PSMLSchema,
   getElementDefinition,
   isValidChild,
   canHaveTextContent,
@@ -23,8 +23,8 @@ export {
   formatValidationErrors,
   formatValidationWarnings,
   getValidationSummary,
-  createMinimalPPSLTemplate,
-  createStandardPPSLTemplate,
+  createMinimalPSMLTemplate,
+  createStandardPSMLTemplate,
   extractPromptText,
   countElements,
 } from './helpers'

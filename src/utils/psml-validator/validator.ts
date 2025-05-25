@@ -1,4 +1,4 @@
-// PPSL Validator Implementation
+// PSML Validator Implementation
 
 import {
   canHaveTextContent,
@@ -12,7 +12,7 @@ import type {
   ValidationResult,
 } from './types'
 
-export class PPSLValidator {
+export class PSMLValidator {
   private parser: DOMParser
 
   constructor() {
@@ -20,7 +20,7 @@ export class PPSLValidator {
   }
 
   /**
-   * Validates a PPSL XML document
+   * Validates a PSML XML document
    * @param xmlContent The XML content to validate
    * @returns Validation result with errors and warnings
    */
@@ -93,7 +93,7 @@ export class PPSLValidator {
   }
 
   /**
-   * Validate document structure according to PPSL schema
+   * Validate document structure according to PSML schema
    */
   private validateStructure(doc: Document, context: ValidationContext): void {
     // Check root element
@@ -469,4 +469,4 @@ export class PPSLValidator {
 }
 
 // Export singleton instance
-export const ppslValidator = new PPSLValidator()
+export const psmlValidator = new PSMLValidator()

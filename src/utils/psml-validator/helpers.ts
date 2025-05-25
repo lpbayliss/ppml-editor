@@ -1,4 +1,4 @@
-// PPSL Validator Helper Utilities
+// PSML Validator Helper Utilities
 
 import type {
   ValidationError,
@@ -51,16 +51,16 @@ export function getValidationSummary(result: ValidationResult): string {
       result.warnings.length > 0
         ? ` with ${result.warnings.length} warning(s)`
         : ''
-    return `✓ Valid PPSL document${warningText}`
+    return `✓ Valid PSML document${warningText}`
   }
 
-  return `✗ Invalid PPSL document: ${result.errors.length} error(s), ${result.warnings.length} warning(s)`
+  return `✗ Invalid PSML document: ${result.errors.length} error(s), ${result.warnings.length} warning(s)`
 }
 
 /**
- * Create a minimal valid PPSL document template
+ * Create a minimal valid PSML document template
  */
-export function createMinimalPPSLTemplate(): string {
+export function createMinimalPSMLTemplate(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <prompt version="1.0">
   <task>
@@ -70,9 +70,9 @@ export function createMinimalPPSLTemplate(): string {
 }
 
 /**
- * Create a standard PPSL document template
+ * Create a standard PSML document template
  */
-export function createStandardPPSLTemplate(): string {
+export function createStandardPSMLTemplate(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <prompt version="1.0">
   <role expertise="expert" tone="helpful">
@@ -127,7 +127,7 @@ export function createStandardPPSLTemplate(): string {
 }
 
 /**
- * Extract text content from a PPSL document
+ * Extract text content from a PSML document
  */
 export function extractPromptText(xmlContent: string): string | null {
   try {
@@ -173,7 +173,7 @@ export function extractPromptText(xmlContent: string): string | null {
 }
 
 /**
- * Count elements in a PPSL document
+ * Count elements in a PSML document
  */
 export function countElements(
   xmlContent: string,

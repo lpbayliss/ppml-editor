@@ -1,4 +1,4 @@
-// PPSL Schema Definition
+// PSML Schema Definition
 
 import type { AttributeDefinition, ElementDefinition } from './types'
 
@@ -16,8 +16,8 @@ const idAttribute: AttributeDefinition = {
   required: false,
 }
 
-// Complete PPSL schema definition
-export const PPSLSchema: Record<string, ElementDefinition> = {
+// Complete PSML schema definition
+export const PSMLSchema: Record<string, ElementDefinition> = {
   prompt: {
     name: 'prompt',
     parent: [],
@@ -393,18 +393,18 @@ export const PPSLSchema: Record<string, ElementDefinition> = {
 export function getElementDefinition(
   elementName: string,
 ): ElementDefinition | undefined {
-  return PPSLSchema[elementName]
+  return PSMLSchema[elementName]
 }
 
 // Check if element can be child of parent
 export function isValidChild(parentName: string, childName: string): boolean {
-  const parentDef = PPSLSchema[parentName]
+  const parentDef = PSMLSchema[parentName]
   if (!parentDef || !parentDef.children) return false
   return parentDef.children.includes(childName)
 }
 
 // Check if element can have text content
 export function canHaveTextContent(elementName: string): boolean {
-  const def = PPSLSchema[elementName]
+  const def = PSMLSchema[elementName]
   return def ? def.textContent === true || def.mixedContent === true : false
 }
